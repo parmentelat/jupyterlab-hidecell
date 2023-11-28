@@ -1,0 +1,14 @@
+{
+  "title": "hidecell custom extension",
+  "description": "Settings of the jupyterlab-hidecell extension.",
+  "properties": {
+    "show_level_buttons": {
+      "type": "boolean",
+      "title": "show level buttons",
+      "description": "Show buttons to change the level of the current cell.",
+      "default": false
+    }
+  },
+  "additionalProperties": false,
+  "type": "object"
+}
