@@ -14,38 +14,10 @@
 }
 
 .jp-Notebook {
-  & .cell-tag-level_basic {
-    background-color: #c7e8c7 !important;
-    border: 1px solid #040;
-    border-radius: 10px;
-    margin-bottom: 6px;
-  }
 
-  & .cell-tag-level_intermediate {
-    background-color: #cfcfe9 !important;
-    border: 1px solid #004;
-    border-radius: 10px;
-    margin-bottom: 6px;
-  }
-
-  & .cell-tag-level_advanced {
-    background-color: #f7d1d1 !important;
-    border: 1px solid #400;
-    border-radius: 10px;
-    margin-bottom: 6px;
-  }
-
-  & .cell-tag-framed_cell {
-    border: 3px ridge #400;
-    border-radius: 10px;
-    margin-bottom: 6px;
-  }
-
-  & .cell-tag-licence * {
-    color: #a0a0a080;
-  }
-
-  /* hide only the input of cells with the tag 'hide-input' */
+  /* hiding requires more work
+   * behaves exactly like remove for now
+   */
   & .cell-tag-hide-input .jp-Cell-inputWrapper .jp-Cell-inputArea {
     display: none;
   }
@@ -54,81 +26,22 @@
     display: none;
   }
 
-  /* hidecell-nn classes allow to use a fraction of the width */
-  .jp-WindowedPanel-window {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    & jp-Cell {
-      min-width: 200px;
-    }
-
-    & .jp-Cell.cell-tag-hidecell-1-2 {
-      width: 50%;
-    }
-    & .jp-Cell.cell-tag-hidecell-1-3 {
-      width: 33.3%;
-    }
-    & .jp-Cell.cell-tag-hidecell-2-3 {
-      width: 66.7%;
-    }
-    & .jp-Cell.cell-tag-hidecell-1-4 {
-      width: 25%;
-    }
-    & .jp-Cell.cell-tag-hidecell-2-4 {
-      width: 50%;
-    } /* redundant */
-    & .jp-Cell.cell-tag-hidecell-3-4 {
-      width: 75%;
-    }
-    & .jp-Cell.cell-tag-hidecell-1-5 {
-      width: 20%;
-    }
-    & .jp-Cell.cell-tag-hidecell-2-5 {
-      width: 40%;
-    }
-    & .jp-Cell.cell-tag-hidecell-3-5 {
-      width: 60%;
-    }
-    & .jp-Cell.cell-tag-hidecell-4-5 {
-      width: 80%;
-    }
-    & .jp-Cell.cell-tag-hidecell-1-6 {
-      width: 16.6%;
-    }
-    & .jp-Cell.cell-tag-hidecell-2-6 {
-      width: 33.3%;
-    } /* redundant */
-    & .jp-Cell.cell-tag-hidecell-3-6 {
-      width: 50%;
-    } /* redundant */
-    & .jp-Cell.cell-tag-hidecell-4-6 {
-      width: 66.7%;
-    } /* redundant */
-    & .jp-Cell.cell-tag-hidecell-5-6 {
-      width: 83.3%;
-    }
-
-    &
-      .jp-Cell:not(
-        .cell-tag-hidecell-1-2,
-        .cell-tag-hidecell-1-3,
-        .cell-tag-hidecell-2-3,
-        .cell-tag-hidecell-1-4,
-        .cell-tag-hidecell-2-4,
-        .cell-tag-hidecell-3-4,
-        .cell-tag-hidecell-1-5,
-        .cell-tag-hidecell-2-5,
-        .cell-tag-hidecell-3-5,
-        .cell-tag-hidecell-4-5,
-        .cell-tag-hidecell-1-6,
-        .cell-tag-hidecell-2-6,
-        .cell-tag-hidecell-3-6,
-        .cell-tag-hidecell-4-6,
-        .cell-tag-hidecell-5-6
-      ) {
-      width: 100%;
-    }
+  & .cell-tag-hide-cell {
+    display: none;
   }
+
+
+  /* removing is easy */
+  & .cell-tag-remove-input .jp-Cell-inputWrapper .jp-Cell-inputArea {
+    display: none;
+  }
+
+  & .cell-tag-remove-output .jp-Cell-outputWrapper .jp-Cell-outputArea {
+    display: none;
+  }
+
+  & .cell-tag-remove-cell {
+    display: none;
+  }
+
 }

@@ -36,12 +36,12 @@ and show content
 
 | shortcut | command | description |
 |----------|---------|-------------|
-| `Alt-\ Alt-H Alt-I` | `hidecell:hide-input` | input area is hidden, a visual handle allows to toggle it back on |
-| `Alt-\ Alt-H Alt-O` | `hidecell:hide-output` | same for output |
-| `Alt-\ Alt-H Alt-C` | `hidecell:hide-cell` | same for whole cell |
-| `Alt-\ Alt-R Alt-I` | `hidecell:remove-input` | input area is no longer visible at all |
-| `Alt-\ Alt-R Alt-O` | `hidecell:remove-output` | same for output |
-| `Alt-\ Alt-R Alt-C` | `hidecell:remove-cell` | same for whole cell (vanishes) |
+| `Alt-\ Alt-H Alt-I` | `hidecell:toggle-hide-input` | input area is hidden, a visual handle allows to toggle it back on |
+| `Alt-\ Alt-H Alt-O` | `hidecell:toggle-hide-output` | same for output |
+| `Alt-\ Alt-H Alt-C` | `hidecell:toggle-hide-cell` | same for whole cell |
+| `Alt-\ Alt-R Alt-I` | `hidecell:toggle-remove-input` | input area is no longer visible at all |
+| `Alt-\ Alt-R Alt-O` | `hidecell:toggle-remove-output` | same for output |
+| `Alt-\ Alt-R Alt-C` | `hidecell:toggle-remove-cell` | same for whole cell (vanishes) |
 
 ### other controls
 

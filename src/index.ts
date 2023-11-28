@@ -15,22 +15,9 @@ import { md_toggle_multi } from 'jupyterlab-celltagsclasses'
 
 const PLUGIN_ID = 'jupyterlab-hidecell:plugin'
 
-const ALL_hidecellS = [
-  '1-2',
-  '1-3',
-  '2-3',
-  '1-4',
-  '2-4',
-  '3-4',
-  '1-5',
-  '2-5',
-  '3-5',
-  '4-5',
-  '1-6',
-  '2-6',
-  '3-6',
-  '4-6',
-  '5-6'
+const TAGS = [
+  'hide-input', 'hide-output', 'hide-cell',
+  'remove-input', 'remove-output', 'remove-cell',
 ]
 
 const plugin: JupyterFrontEndPlugin<void> = {
@@ -47,47 +34,23 @@ const plugin: JupyterFrontEndPlugin<void> = {
     let command
 
     // hidecell-1-2..hidecell-1-6
-    const ALL_hidecellS_FULL = ALL_hidecellS.map(
-      hidecell => `hidecell-${hidecell}`
-    )
-    for (const hidecell of ALL_hidecellS) {
-      const [num, den] = hidecell.split('-')
-      command = `hidecell:toggle-${num}-${den}`
+    for (const tag of TAGS) {
+      command = `hidecell:toggle-${tag}`
       app.commands.addCommand(command, {
-        label: `cell to take ${num}/${den} space (toggle)`,
+        label: `toggle tag ${tag} on active cell`,
         execute: () =>
           apply_on_cells(notebookTracker, Scope.Active, (cell: Cell) => {
-            md_toggle_multi(
-              cell,
-              'tags',
-              `hidecell-${hidecell}`,
-              ALL_hidecellS_FULL
-            )
+            md_toggle_multi( cell, 'tags', tag, TAGS)
           })
       })
       palette.addItem({ command, category: 'hidecell' })
+      const [op, what] = tag.split('-')
       app.commands.addKeyBinding({
         command,
-        keys: [`Alt ${num}`, `Alt ${den}`],
-        selector: '.jp-Notebook'
+        keys: [`Ctrl \\`, `Ctrl ${op[0]}`, `Ctrl ${what[0]}`],
+        selector: '.jp-Notebook',
       })
     }
-    // a shortcut to cancel all hidecells
-    command = 'hidecell:cancel'
-    app.commands.addCommand(command, {
-      label: 'cancel all hidecells',
-      execute: () =>
-        apply_on_cells(notebookTracker, Scope.Active, (cell: Cell) => {
-          console.log(`cancelling all hidecells for cell ${cell.model.id}`)
-          md_toggle_multi(cell, 'tags', '', ALL_hidecellS_FULL)
-        })
-    })
-    palette.addItem({ command, category: 'hidecell' })
-    app.commands.addKeyBinding({
-      command,
-      keys: ['Alt 0'],
-      selector: '.jp-Notebook'
-    })
   }
 }
 

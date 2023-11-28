@@ -4,8 +4,8 @@
   "properties": {
     "show_level_buttons": {
       "type": "boolean",
-      "title": "show level buttons",
-      "description": "Show buttons to change the level of the current cell.",
+      "title": "show menubar button",
+      "description": "Show buttons to change the level of the current cell. Unused as of yet.",
       "default": false
     }
   },
