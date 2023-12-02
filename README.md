@@ -32,22 +32,24 @@ notebooks passed as arguments
 ### palette commands and keyboard shortcuts
 
 all commands behave as togglers, so that you can use the same shortcut to hide
-and show content
+and show content; search for `hidecell` in the palette to display:
 
 | shortcut | command | description |
 |----------|---------|-------------|
-| `Alt-\ Alt-H Alt-I` | `hidecell:toggle-hide-input` | input area is hidden, a visual handle allows to toggle it back on |
-| `Alt-\ Alt-H Alt-O` | `hidecell:toggle-hide-output` | same for output |
-| `Alt-\ Alt-H Alt-C` | `hidecell:toggle-hide-cell` | same for whole cell |
-| `Alt-\ Alt-R Alt-I` | `hidecell:toggle-remove-input` | input area is no longer visible at all |
-| `Alt-\ Alt-R Alt-O` | `hidecell:toggle-remove-output` | same for output |
-| `Alt-\ Alt-R Alt-C` | `hidecell:toggle-remove-cell` | same for whole cell (vanishes) |
+| `Accel-0 H I` | `hidecell:toggle-hide-input` | input area is hidden, a visual handle allows to toggle it back on |
+| `Accel-0 H O` | `hidecell:toggle-hide-output` | same for output |
+| `Accel-0 H C` | `hidecell:toggle-hide-cell` | same for whole cell |
+| `Accel-0 R I` | `hidecell:toggle-remove-input` | input area is no longer visible at all |
+| `Accel-0 R O` | `hidecell:toggle-remove-output` | same for output |
+| `Accel-0 R C` | `hidecell:toggle-remove-cell` | same for whole cell (vanishes) |
+| `Accel-0 N`   | `hidecell:debug-on` | outline the cells subject to any of our tags |
+| `Accel-0 F`   | `hidecell:debug-off` | quit debug mode |
 
 ### other controls
 
 since this exclusively relies on the presence of the above tags, you can also
-use jupyterlab's so called "Property Inspector" feature; of course in this case
-you're in charge of dealing with duplicate tags...
+use jupyterlab's so called "Property Inspector" feature; however in this case
+you're in charge of avoiding duplicate tags...
 
 ### limitations
 

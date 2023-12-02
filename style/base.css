@@ -15,19 +15,54 @@
 
 .jp-Notebook {
 
-  /* hiding requires more work
-   * behaves exactly like remove for now
-   */
-  & .cell-tag-hide-input .jp-Cell-inputWrapper .jp-Cell-inputArea {
+  & .cell-tag-hide-input .jp-Cell-inputWrapper::before {
+      content: "hide-input: jupyter-book would allow to toggle this cell's input →";
+      width: 100%;
+  }
+  & .cell-tag-hide-output .jp-Cell-outputWrapper::before {
+    content: "hide-output: jupyter-book would allow to toggle this cell's output →";
+    width: 100%;
+  }
+  & .cell-tag-hide-cell::before {
+    content: "hide-cell: jupyter-book would allow to toggle this cell→";
+    /* width: 100%; */
+  }
+  & .cell-tag-hide-input .jp-Cell-inputWrapper::before,
+  & .cell-tag-hide-output .jp-Cell-outputWrapper::before,
+  & .cell-tag-hide-cell::before {
+    font-size: large;
+    margin-left: var(--jp-cell-prompt-width);
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid #400;
+    background-color: aliceblue;
+    display: block;
+  }
+
+  & .cell-tag-hide-input.cell-tag-hidecell-debug .jp-Cell-inputWrapper,
+    .cell-tag-hide-output.cell-tag-hidecell-debug .jp-Cell-outputWrapper {
+    flex-direction: column;
+  }
+  & .cell-tag-hide-input:not(.cell-tag-hidecell-debug) .jp-Cell-inputWrapper .jp-Cell-inputArea {
     display: none;
   }
 
-  & .cell-tag-hide-output .jp-Cell-outputWrapper .jp-Cell-outputArea {
+  & .cell-tag-hide-output:not(.cell-tag-hidecell-debug) .jp-Cell-outputWrapper .jp-Cell-outputArea {
     display: none;
   }
 
-  & .cell-tag-hide-cell {
+  & .cell-tag-hide-cell:not(.cell-tag-hidecell-debug)>* {
     display: none;
+  }
+
+  & .cell-tag-hidecell-debug.cell-tag-hide-input,
+    .cell-tag-hidecell-debug.cell-tag-hide-output,
+    .cell-tag-hidecell-debug.cell-tag-hide-cell,
+    .cell-tag-hidecell-debug.cell-tag-remove-input,
+    .cell-tag-hidecell-debug.cell-tag-remove-output,
+    .cell-tag-hidecell-debug.cell-tag-remove-cell {
+    border: 2px solid red;
+    border-radius: 8px;
   }
 
 
@@ -40,7 +75,12 @@
     display: none;
   }
 
-  & .cell-tag-remove-cell {
+  /* in debug mode, hide all chidren in the cell so the border shows up */
+  & .cell-tag-remove-cell.cell-tag-hidecell-debug>* {
+    display: none;
+  }
+  /* in regular mode we can hide the whole cell */
+  & .cell-tag-remove-cell:not(.cell-tag-hidecell-debug) {
     display: none;
   }
 
