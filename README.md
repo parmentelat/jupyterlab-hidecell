@@ -34,16 +34,16 @@ notebooks passed as arguments
 all commands behave as togglers, so that you can use the same shortcut to hide
 and show content; search for `hidecell` in the palette to display:
 
-| shortcut | command | description |
-|----------|---------|-------------|
-| `Accel-0 H I` | `hidecell:toggle-hide-input` | input area is hidden, a visual handle allows to toggle it back on |
-| `Accel-0 H O` | `hidecell:toggle-hide-output` | same for output |
-| `Accel-0 H C` | `hidecell:toggle-hide-cell` | same for whole cell |
-| `Accel-0 R I` | `hidecell:toggle-remove-input` | input area is no longer visible at all |
-| `Accel-0 R O` | `hidecell:toggle-remove-output` | same for output |
-| `Accel-0 R C` | `hidecell:toggle-remove-cell` | same for whole cell (vanishes) |
-| `Accel-0 N`   | `hidecell:debug-on` | outline the cells subject to any of our tags |
-| `Accel-0 F`   | `hidecell:debug-off` | quit debug mode |
+| shortcut      | command                         | description                                                       |
+| ------------- | ------------------------------- | ----------------------------------------------------------------- |
+| `Accel-0 H I` | `hidecell:toggle-hide-input`    | input area is hidden, a visual handle allows to toggle it back on |
+| `Accel-0 H O` | `hidecell:toggle-hide-output`   | same for output                                                   |
+| `Accel-0 H C` | `hidecell:toggle-hide-cell`     | same for whole cell                                               |
+| `Accel-0 R I` | `hidecell:toggle-remove-input`  | input area is no longer visible at all                            |
+| `Accel-0 R O` | `hidecell:toggle-remove-output` | same for output                                                   |
+| `Accel-0 R C` | `hidecell:toggle-remove-cell`   | same for whole cell (vanishes)                                    |
+| `Accel-0 N`   | `hidecell:debug-on`             | outline the cells subject to any of our tags                      |
+| `Accel-0 F`   | `hidecell:debug-off`            | quit debug mode                                                   |
 
 ### other controls
 

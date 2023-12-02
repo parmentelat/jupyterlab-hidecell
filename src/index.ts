@@ -9,7 +9,11 @@ import { INotebookTracker } from '@jupyterlab/notebook'
 import { Cell } from '@jupyterlab/cells'
 
 import { Scope, apply_on_cells } from 'jupyterlab-celltagsclasses'
-import { md_insert, md_remove, md_toggle_multi } from 'jupyterlab-celltagsclasses'
+import {
+  md_insert,
+  md_remove,
+  md_toggle_multi
+} from 'jupyterlab-celltagsclasses'
 
 const PLUGIN_ID = 'jupyterlab-hidecell:plugin'
 
@@ -20,17 +24,24 @@ const PLUGIN_ID = 'jupyterlab-hidecell:plugin'
 // currently beyond my capabilities
 
 const TAGS = [
-  'hide-input', 'hide-output', 'hide-cell',
-  'remove-input', 'remove-output', 'remove-cell',
+  'hide-input',
+  'hide-output',
+  'hide-cell',
+  'remove-input',
+  'remove-output',
+  'remove-cell'
 ]
 
 const add_or_remove_debug_tag_on_all_cells = (
-  notebookTracker: INotebookTracker, add_if_true: boolean) => {
+  notebookTracker: INotebookTracker,
+  add_if_true: boolean
+) => {
   apply_on_cells(notebookTracker, Scope.All, (cell: Cell) => {
-    if (add_if_true)
+    if (add_if_true) {
       md_insert(cell, 'tags', 'hidecell-debug')
-    else
+    } else {
       md_remove(cell, 'tags', 'hidecell-debug')
+    }
   })
 }
 
@@ -61,33 +72,37 @@ const plugin: JupyterFrontEndPlugin<void> = {
       const [op, scope] = tag.split('-')
       app.commands.addKeyBinding({
         command,
-        keys: [`Accel 0`, `${op[0].toUpperCase()}`, `${scope[0].toUpperCase()}`],
-        selector: '.jp-Notebook',
+        keys: [
+          'Accel 0',
+          `${op[0].toUpperCase()}`,
+          `${scope[0].toUpperCase()}`
+        ],
+        selector: '.jp-Notebook'
       })
     }
-    command =  "hidecell:debug-on"
+    command = 'hidecell:debug-on'
     app.commands.addCommand(command, {
-      label: "hidecell debug on: show cell parts regardless of their tags",
-      execute: () => add_or_remove_debug_tag_on_all_cells(notebookTracker, true),
+      label: 'hidecell debug on: show cell parts regardless of their tags',
+      execute: () => add_or_remove_debug_tag_on_all_cells(notebookTracker, true)
     })
-    palette.addItem({command, category: "hidecell"})
+    palette.addItem({ command, category: 'hidecell' })
     app.commands.addKeyBinding({
       command,
       keys: ['Accel 0', 'N'],
-      selector: '.jp-Notebook',
+      selector: '.jp-Notebook'
     })
 
-
-    command = "hidecell:debug-off"
+    command = 'hidecell:debug-off'
     app.commands.addCommand(command, {
-      label: "hidecell debug off",
-      execute: () => add_or_remove_debug_tag_on_all_cells(notebookTracker, false),
+      label: 'hidecell debug off',
+      execute: () =>
+        add_or_remove_debug_tag_on_all_cells(notebookTracker, false)
     })
-    palette.addItem({command, category: "hidecell"})
+    palette.addItem({ command, category: 'hidecell' })
     app.commands.addKeyBinding({
       command,
       keys: ['Accel 0', 'F'],
-      selector: '.jp-Notebook',
+      selector: '.jp-Notebook'
     })
   }
 }
